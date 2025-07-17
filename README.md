@@ -35,7 +35,7 @@ WinVisual 是一个轻量级的 Windows 工具程序，用于控制指定窗口�
 
 ## 📁 发布版本
 
-你可以在 [Releases 页面](https://github.com/你的用户名/WinVisual/releases) 下载最新的 WinVisual.exe 文件，直接运行，无需安装。
+你可以在 [Releases 页面](https://github.com/cgiaol/WinVisual/releases) 下载最新的 WinVisual.exe 文件，直接运行，无需安装。
 
 ---
 
