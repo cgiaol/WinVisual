@@ -67,3 +67,74 @@ WinVisual 特别适合在办公环境中“低调摸鱼”：
 本项目采用 MIT 协议，欢迎自由使用、修改和分发。
 
 ---
+# WinVisual - Window Visibility Controller
+
+**WinVisual** is a lightweight Windows utility that allows you to control the visibility of any target window.  
+It uses transparency to make windows visually "invisible" without affecting their operation or removing them from the taskbar.
+
+---
+
+## 🎯 Design Philosophy
+
+Across countless office desks, workers quietly open chat windows, video players, or novel sites...  
+Only to panic when the boss walks by—frantically pressing Alt+Tab, Ctrl+W, or even unplugging the network cable.
+
+I was one of those workers, desperately searching for a "stealth tool" to help me sneak in a break—only to find nothing that truly worked.  
+Most tools were either too complicated or simply closed the window, which defeats the purpose of subtle multitasking.
+
+So I decided to build my own. With the help of AI, I created a tool that truly understands what office workers need:  
+**No closing, no minimizing, no interruptions—just quiet invisibility.**
+
+---
+
+## ✨ Features
+
+- 🔍 Lock onto a target window using partial title matching
+- 🖱️ Automatically restore visibility when the mouse enters the window area
+- 🕶️ Automatically fade to full transparency when the window loses focus or the mouse leaves
+- 🧭 Tray icon support with right-click menu (Show / Exit)
+
+---
+
+## 🐟 A Gift for Office Stealth Mode
+
+WinVisual is perfect for discreet multitasking at work:
+
+- ✅ Want to sneak a video or chat window? Lock it and let it auto-hide—no panic when someone walks by
+- ✅ Mouse near the window? It smoothly reappears without interrupting your flow
+- ✅ The window stays active and visible in the taskbar—no closing, no minimizing, just stealth
+
+It doesn’t shut down your window—it simply makes it invisible.  
+**True stealth, zero trace.**
+
+---
+
+## 📦 How to Use
+
+1. Launch the program and enter part of the target window's title
+2. Click the **Lock Window** button
+3. The controller will minimize and begin monitoring the target window
+4. When your mouse enters the window area, it becomes visible; when it leaves, it turns transparent
+5. Use the tray icon to restore the controller or exit the program
+
+---
+
+## 🧑‍💻 Project Background
+
+This is my very first project as a beginner in programming, built step by step with the help of AI (Microsoft Copilot).  
+From window control logic and UI design to icon generation and packaging, everything was guided by AI assistance.  
+I hope this tool helps others with similar needs—and I welcome suggestions or improvements!
+
+---
+
+## 📁 Releases
+
+You can download the latest version of **WinVisual.exe** from the [Releases page](https://github.com/cgiaol/WinVisual/releases).  
+No installation required—just run the executable.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.  
+Feel free to use, modify, and distribute it.
