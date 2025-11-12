@@ -20,9 +20,10 @@ WinVisual 是一个轻量级的 Windows 工具程序，用于控制指定窗口�
 ## ✨ 项目功能
 
 - 🔍 根据窗口标题关键字锁定目标窗口
-- 🖱️ 鼠标移入窗口区域时自动恢复显示
-- 🕶️ 鼠标移出或窗口失焦时自动变为透明
-- 🧭 托盘驻留，支持右键菜单显示/退出
+- 🖱️ 鼠标移入窗口区域时自动恢复显示，移出或失焦时自动变为透明
+- ⌨️ 全局热键隐藏/恢复任务栏图标
+- 🎛️ 热键自定义，支持任意组合键
+- 🎨 界面风格统一化，整体更简洁现代
 
 ---
 
@@ -90,9 +91,10 @@ So I decided to build my own. With the help of AI, I created a tool that truly u
 ## ✨ Features
 
 - 🔍 Lock onto a target window using partial title matching
-- 🖱️ Automatically restore visibility when the mouse enters the window area
-- 🕶️ Automatically fade to full transparency when the window loses focus or the mouse leaves
-- 🧭 Tray icon support with right-click menu (Show / Exit)
+- 🖱️ Automatically restore visibility when the mouse enters the window area, and fade to transparency when the mouse leaves or the window loses focus
+- ⌨️ Global hotkey to hide/restore taskbar icon
+- 🎛️ Customizable hotkeys for any key combination
+- 🎨 Unified UI style for a cleaner, modern look
 
 ---
 
