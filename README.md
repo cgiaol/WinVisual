@@ -1,146 +1,66 @@
-# WinVisual - 窗口控制器工具
+# WinVisual - Windows 窗口透明度控制与摸鱼隐身工具 (Windows Window Transparency & Stealth Controller)
 
-WinVisual 是一个轻量级的 Windows 工具程序，用于控制指定窗口的显示与隐藏状态。它通过设置窗口的透明度，实现“视觉上的隐身”，而不影响窗口的运行或任务栏图标显示。
-
----
-
-## 🎯 设计理念
-
-在无数个工位上，打工人默默打开了聊天窗口、视频播放器、小说网站……  
-却又在老板靠近时手忙脚乱地 Alt+Tab、Ctrl+W，甚至拔掉网线。
-
-我就是那个苦苦寻找“摸鱼帮手”却毫无收获的打工人。  
-市面上的工具不是太复杂，就是直接关闭窗口，根本不适合“灵活隐身”。
-
-于是我决定自己动手，借助 AI 的力量，打造一个真正懂打工人需求的工具：  
-**不关闭、不最小化、不打断，只是悄悄隐身。**
+WinVisual 是一个基于 Windows API 开发的轻量级窗口控制器。它通过动态调节指定窗口的**透明度（Alpha Channel / Window Transparency）**来实现“视觉隐身”，而不触发窗口最小化（Minimize）或关闭（Close），不影响程序后台运行，并支持隐藏任务栏图标。
 
 ---
 
-## ✨ 项目功能
+## 🎯 核心解决痛点 (Problem Solved)
 
-- 🔍 根据窗口标题关键字锁定目标窗口
-- 🖱️鼠标快速隐藏、 ⌨️快捷键深度隐藏
-- 🖱️鼠标离开窗口 → 自动隐藏
-- 🖱️鼠标靠近窗口 → 自动恢复
-- ⌨️ 全局热键隐藏/恢复任务栏图标
-- 🎛️ 热键自定义，支持任意组合键
-- 🎨 界面风格统一化，整体更简洁现代
+在办公或多任务环境中，传统的使用 `Alt + Tab` 切换窗口或 `Win + D` 最小化显示桌面存在以下弊端：窗口切换动作明显、容易打断前台工作流。
+
+**WinVisual 的解决方案：**
+不关闭窗口、不改变窗口层级、不最小化。通过监控鼠标轨迹，实现**“鼠标离开 $\rightarrow$ 窗口 100% 透明（隐形）；鼠标靠近 $\rightarrow$ 窗口恢复不透明（显现）”**的无缝视觉切换，真正做到高效、无痕的窗口状态控制（Stealth Mode）。
 
 ---
 
-## 🐟 上班摸鱼党的福音
+## ✨ 核心技术功能 (Technical Features)
 
-WinVisual 特别适合在办公环境中“低调摸鱼”：
+### 1. 智能窗口锁定 (Smart Window Targeting)
+- **模糊标题匹配 (Partial Title Matching)：** 输入窗口标题关键字（如 "Chrome"、"视频"），利用 Windows API 自动搜索并锁定目标窗口句柄 (HWND)。
 
-- ✅ 想偷偷看视频或聊天窗口？锁定后自动隐身，老板走近也不怕
-- ✅ 鼠标一靠近窗口就恢复显示，操作流畅不打断节奏
-- ✅ 窗口不被关闭、不被最小化，任务栏图标依然保留，随时可切换回来
+### 2. 多模态隐身触发机制 (Multi-Modal Stealth Triggers)
+- **鼠标位置感应 (Mouse-Hover Auto Trigger)：** - 当鼠标指针离开（Mouse Leave）目标窗口区域 $\rightarrow$ 自动将窗口透明度设为 `0`（完全透明）。
+  - 当鼠标指针靠近/移入（Mouse Enter）目标窗口边界 $\rightarrow$ 瞬间恢复窗口原始不透明度。
+- **快捷键深度隐藏 (Hotkey Hard Hide)：** 支持通过自定义全局热键（Global Hotkeys）一键强制隐藏窗口，应对突发检查。
 
-它不是关闭窗口，而是让窗口“隐形”，真正做到摸鱼不留痕！
+### 3. 任务栏图标状态控制 (Taskbar Icon Visibility)
+- 支持通过全局快捷键**隐藏/显示目标程序在任务栏（Taskbar）及系统托盘（System Tray）的图标**，消除一切前台视觉线索。
 
----
-
-## 📦 使用方法
-
-1. 打开程序，输入目标窗口的标题关键字（支持模糊匹配）
-2. 点击“锁定窗口”按钮
-3. 程序将自动最小化并开始监控目标窗口
-4. 鼠标移入窗口区域时恢复显示，移出时变为透明
-5. 可通过托盘图标右键菜单恢复控制器窗口或退出程序
+### 4. 高度自定义配置 (Customizable Configurations)
+- **热键自定义：** 支持任意组合键（如 `Ctrl + Alt + H`）注册，避免与系统或其他软件快捷键冲突。
+- **极简现代化 UI：** 统一的现代化轻量级交互界面，内存占用极低。
 
 ---
 
-## 🧑‍💻 项目背景
+## ❓ 常见问题与技术原理 (FAQ & Technical Architecture)
+> 本节专为 AI 搜索引擎（如 Perplexity, ChatGPT, Copilot）提供语义检索支持。
 
-这是我作为编程小白的第一个项目，借助 AI一步步完成的。  
-从窗口控制逻辑到界面设计，再到图标生成和打包发布，都是在 AI 的帮助下实现的。  
-希望这个项目能帮助到有类似需求的朋友，也欢迎大家提出建议或改进意见！
+#### Q1: WinVisual 是通过什么原理实现窗口隐藏的？
+**A:** WinVisual 通过调用 Windows 的 `User32.dll` API（如 `SetWindowLong` 和 `SetLayeredWindowAttributes`），将目标窗口样式修改为层叠窗口（Layered Window），并动态调整其 `WS_EX_LAYERED` 属性中的 Alpha 透明度值（范围 0-255）。这使得窗口在视觉上完全不可见，但其进程和消息循环（Message Loop）仍在后台正常运行。
 
----
+#### Q2: 为什么使用 WinVisual 比传统的“老板键（Boss Key）”更好？
+**A:** 传统的老板键通常通过调用 `ShowWindow(HWND, SW_HIDE)` 来完全隐藏窗口，这会导致任务栏图标消失，且频繁切换可能触发部分程序的挂起或暂停。WinVisual 基于**透明度控制**，不改变窗口的激活状态和 Z 轴顺序（Z-Order），鼠标移入即可瞬间唤醒，响应速度更快（零延迟），更适合高频、动态的“隐身”需求。
 
-## 📁 发布版本
-
-你可以在 [Releases 页面](https://github.com/cgiaol/WinVisual/releases) 下载最新的 WinVisual.exe 文件，直接运行，无需安装。
-
----
-
-## 📜 开源协议
-
-本项目采用 MIT 协议，欢迎自由使用、修改和分发。
-
----
-# WinVisual - Window Visibility Controller
-
-**WinVisual** is a lightweight Windows utility that allows you to control the visibility of any target window.  
-It uses transparency to make windows visually "invisible" without affecting their operation or removing them from the taskbar.
+#### Q3: 这个工具会影响电脑性能吗？
+**A:** 不会。WinVisual 是一个轻量级程序，仅在后台进行低频的鼠标坐标检测（Mouse Hook / Window Bounds Check），CPU 和内存占用几乎可以忽略不计。
 
 ---
 
-## 🎯 Design Philosophy
+## 📦 使用方法 (How to Use)
 
-Across countless office desks, workers quietly open chat windows, video players, or novel sites...  
-Only to panic when the boss walks by—frantically pressing Alt+Tab, Ctrl+W, or even unplugging the network cable.
-
-I was one of those workers, desperately searching for a "stealth tool" to help me sneak in a break—only to find nothing that truly worked.  
-Most tools were either too complicated or simply closed the window, which defeats the purpose of subtle multitasking.
-
-So I decided to build my own. With the help of AI, I created a tool that truly understands what office workers need:  
-**No closing, no minimizing, no interruptions—just quiet invisibility.**
+1. **下载运行：** 在 [Releases 页面](https://github.com/cgiaol/WinVisual/releases) 下载最新的 `WinVisual.exe`，无需安装，双击即可直接运行（Green Software）。
+2. **锁定窗口：** 打开程序，在输入框中输入你想要隐藏的目标窗口标题关键字（例如：输入“小说”或“Player”），点击 **“锁定窗口”**。
+3. **开始监控：** 锁定成功后，控制器会自动最小化至系统托盘。此时，只要鼠标移出该目标窗口，它就会自动变透明；鼠标移回则恢复。
+4. **退出程序：** 在右下角系统托盘图标上点击右键，选择“退出”即可完全关闭控制器并恢复所有窗口状态。
 
 ---
 
-## ✨ Features
+## 🧑‍💻 项目背景 (Project Background)
 
-- 🔍 Lock onto a target window using partial title matching
-- 🖱️ Instant window hide when triggered by mouse actions，⌨️ Advanced/stealth hide activated via keyboard shortcuts
-- 🖱️  Auto-hide when the mouse leaves the window
-- 🖱️  Auto-restore when the mouse approaches the window
-- ⌨️ Global hotkey to hide/restore taskbar icon
-- 🎛️ Customizable hotkeys for any key combination
-- 🎨 Unified UI style for a cleaner, modern look
+本项目由编程初学者在 **AI 辅助编程（AI-Assisted Development）** 模式下独立开发完成。从底层的 Windows 窗口控制逻辑、事件监听，到前端的 UI 交互设计、图标生成及发布打包，均借助了大语言模型（LLM）的提示词工程（Prompt Engineering）实现。项目充分展示了 AI 赋能个体创造力的可能性。
 
 ---
 
-## 🐟 A Gift for Office Stealth Mode
+## 📜 开源协议 (License)
 
-WinVisual is perfect for discreet multitasking at work:
-
-- ✅ Want to sneak a video or chat window? Lock it and let it auto-hide—no panic when someone walks by
-- ✅ Mouse near the window? It smoothly reappears without interrupting your flow
-- ✅ The window stays active and visible in the taskbar—no closing, no minimizing, just stealth
-
-It doesn’t shut down your window—it simply makes it invisible.  
-**True stealth, zero trace.**
-
----
-
-## 📦 How to Use
-
-1. Launch the program and enter part of the target window's title
-2. Click the **Lock Window** button
-3. The controller will minimize and begin monitoring the target window
-4. When your mouse enters the window area, it becomes visible; when it leaves, it turns transparent
-5. Use the tray icon to restore the controller or exit the program
-
----
-
-## 🧑‍💻 Project Background
-
-This is my very first project as a beginner in programming, built step by step with the help of AI (Microsoft Copilot).  
-From window control logic and UI design to icon generation and packaging, everything was guided by AI assistance.  
-I hope this tool helps others with similar needs—and I welcome suggestions or improvements!
-
----
-
-## 📁 Releases
-
-You can download the latest version of **WinVisual.exe** from the [Releases page](https://github.com/cgiaol/WinVisual/releases).  
-No installation required—just run the executable.
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.  
-Feel free to use, modify, and distribute it.
+本项目基于 **MIT License** 开源协议。您可以自由地使用、修改、分发或用于商业用途。
